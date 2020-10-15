@@ -7,11 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.URLUtil
-import android.widget.Button
 import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_add_portal.*
-import java.net.URL
+
+const val REQ_PORTAL_KEY = "req_portal"
+const val BUNDLE_PORTAL_TITLE = "bundle_title"
+const val BUNDLE_PORTAL_URL = "bundle_url"
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -39,7 +43,12 @@ class AddPortalFragment : Fragment() {
         val validURL = isValidURL(txtInputURL.text.toString())
 
         if (URLTitle.isNotBlank() && validURL) {
-            //Add to recycleview
+            setFragmentResult(
+                REQ_PORTAL_KEY, bundleOf(
+                    Pair(BUNDLE_PORTAL_TITLE, URLTitle),
+                    Pair(BUNDLE_PORTAL_URL, txtInputTitle.text.toString())
+                )
+            )
             findNavController().popBackStack()
         } else {
             Toast.makeText(activity, "Fill in a title and valid URL", Toast.LENGTH_SHORT).show()

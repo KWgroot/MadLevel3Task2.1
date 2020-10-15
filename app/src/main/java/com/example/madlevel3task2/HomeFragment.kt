@@ -13,6 +13,9 @@ import androidx.navigation.fragment.findNavController
  */
 class HomeFragment : Fragment() {
 
+    private val portals = arrayListOf<Portal>()
+    private val portalAdapter = PortalAdapter(portals)
+
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
