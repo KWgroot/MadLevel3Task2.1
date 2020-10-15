@@ -17,15 +17,17 @@ class PortalAdapter (private val portals: List<Portal>) : RecyclerView.Adapter<P
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        TODO("Not yet implemented")
+        return ViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item_portal, parent, false)
+        )
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return portals.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.databind(portals[position])
     }
 
 }

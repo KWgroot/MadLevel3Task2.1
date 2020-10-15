@@ -46,7 +46,7 @@ class AddPortalFragment : Fragment() {
             setFragmentResult(
                 REQ_PORTAL_KEY, bundleOf(
                     Pair(BUNDLE_PORTAL_TITLE, URLTitle),
-                    Pair(BUNDLE_PORTAL_URL, txtInputTitle.text.toString())
+                    Pair(BUNDLE_PORTAL_URL, txtInputURL.text.toString())
                 )
             )
             findNavController().popBackStack()
